@@ -65,7 +65,7 @@ $(document).on("click", ".gifButtons", function () {
             $("#gifs-here").prepend(gif)
         }
 
-        
+
 
         // let gifTarget = document.getElementById("gifs")
 
@@ -96,11 +96,11 @@ $(document).on("click", ".gifButtons", function () {
 
 
 $(document).on("mouseenter", "#gifs", function () {
-console.log("mouseenter")
-var $gif = $(this);
-let animated = $gif.attr('data-animated');
-$gif.attr("src", animated)
-$gif.attr("data-state", "animated")
+    console.log("mouseenter")
+    var $gif = $(this);
+    let animated = $gif.attr('data-animated');
+    $gif.attr("src", animated)
+    $gif.attr("data-state", "animated")
 })
 
 $(document).on("mouseleave", "#gifs", function () {
@@ -130,31 +130,15 @@ $(document).on("click", ".submitButton", function () {
 })
 
 
+$(document).on('dblclick', "#gifs", function () {
+   event.preventDefault();
 
-$(document).on('dblclick', "#gifs", function(){ 
-
-
-    // const image = document.querySelectorAll(`#gifs-here img`);
-    imgData = getBase64Image("this")
-    //  animated = JSON.stringify(animated)
-    console.log(animated)
+    let savedGif = $(this).attr("data-animated")
+    list.push(savedGif)
     
-    // var savedImagesSrc = JSON.stringify(localStorage.setItem("images", (animated))) || [];
-    localStorage.setItem("images", (animated)) || [];
-    // localStorage.setItem("images", (savedImagesSrc))
-    createSavedImage()
+    localStorage.setItem("todolist", JSON.stringify(list));
+
+
 })
 
-    function createSavedImage() {
-
-let savedImagesSrc = (localStorage.getItem("images")) || [];
-
-    for (var i = 0; i < savedImagesSrc.length; i++) {
-        let savedImage = $("<img>")
-        savedImage.attr({"src": savedImagesSrc[i]});
-        $("#saved-images").append(savedImage)
-
-      }
-    }
- 
-
+var list = JSON.parse(localStorage.getItem("todolist"));
