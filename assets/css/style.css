@@ -12,7 +12,8 @@
 }
 
 .top-container {
-    background-image: url("../images/weather.gif");
+    margin-top: -2%;
+    background-image: url("../images/rainfall.jpg");
     height:450px;
     width:100%;
 }
@@ -21,7 +22,7 @@
     width:52%;
     height:450px;
     background-color:white;
-    margin: 0 auto;
+    margin-left: 5%;
 }
 
 .buttons-here {
@@ -31,5 +32,11 @@
 
 .gifButtons {
     margin-left: 2%;
+}
+
+.title {
+    font-size: 45px;
+    font-weight: 5px;
+    color:red;
 }
 
